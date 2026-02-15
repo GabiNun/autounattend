@@ -1,4 +1,17 @@
-$ISO = 'C:\Users\User\Documents\Windows.iso'
+Add-Type -AssemblyName System.Windows.Forms
+
+$dialog = New-Object System.Windows.Forms.OpenFileDialog
+$dialog.Filter = "ISO files (*.iso)|*.iso"
+$dialog.Title  = "Select Windows ISO"
+$dialog.Multiselect = $false
+
+if ($dialog.ShowDialog() -ne [System.Windows.Forms.DialogResult]::OK) {
+    Write-Host "No ISO selected. Exiting."
+    exit
+}
+
+$ISO = $dialog.FileName
+
 $Drive = (Get-DiskImage -ImagePath $ISO | Mount-DiskImage | Get-Volume).DriveLetter + ':'
 
 New-Item Sources -ItemType Directory | Out-Null
