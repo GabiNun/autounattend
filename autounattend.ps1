@@ -1,14 +1,11 @@
 Add-Type -AssemblyName System.Windows.Forms
 
+Write-Host Choice your ISO file
+
 $dialog = New-Object System.Windows.Forms.OpenFileDialog
 $dialog.Filter = "ISO files (*.iso)|*.iso"
 $dialog.Title  = "Select Windows ISO"
-
-Write-Host Choice your ISO file
-if ($dialog.ShowDialog() -ne [System.Windows.Forms.DialogResult]::OK) {
-    Write-Host "No ISO selected."
-    return
-}
+$dialog.ShowDialog()
 
 $ISO = $dialog.FileName
 
