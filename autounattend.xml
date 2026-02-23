@@ -18,6 +18,9 @@
                     <WillShowUI>Never</WillShowUI>
                 </ProductKey>
             </UserData>
+            <DynamicUpdate>
+                <Enable>false</Enable>
+            </DynamicUpdate>
             <ImageInstall>
                 <Compact>false</Compact>
                 <OSImage>
