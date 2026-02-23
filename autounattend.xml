@@ -19,6 +19,7 @@
                 </ProductKey>
             </UserData>
             <ImageInstall>
+                <Compact>false</Compact>
                 <OSImage>
                     <InstallFrom>
                         <MetaData wcm:action="add">
