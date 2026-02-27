@@ -26,6 +26,8 @@ Foreach ($Package in (Get-AppxProvisionedPackage -Path Install).PackageName | Wh
   Remove-ProvisionedAppPackage -Path Install -PackageName $Package | Out-Null
 }
 
+Dism /Capture-Image /ImageFile:install.wim /CaptureDir:Install /Name:"Windows 11 Pro" /Compress:Fast
+
 Dismount-WindowsImage -Path Install -Discard
 
 irm https://msdl.microsoft.com/download/symbols/oscdimg.exe/688CABB065000/oscdimg.exe -Out oscdimg.exe
