@@ -14,7 +14,7 @@ $Drive = (Get-DiskImage -ImagePath $ISO | Mount-DiskImage | Get-Volume).DriveLet
 New-Item Sources -ItemType Directory | Out-Null
 Copy-Item -Path "$Drive\*" -Destination Sources -Recurse -Force
 
-irm https://github.com/GabiNun/autounattend/raw/main/autounattend.xml -Out Sources\autounattend.xml
+irm https://github.com/GabiNun/autounattend/raw/main/autounattend.xml -Out Sources\autounattend.xml # Change me if you want
 irm https://msdl.microsoft.com/download/symbols/oscdimg.exe/688CABB065000/oscdimg.exe -Out oscdimg.exe # I got this url from `winget install oscdimg`
 
 .\oscdimg.exe "-bSources\efi\microsoft\boot\efisys.bin" -u2 Sources autounattend.iso
