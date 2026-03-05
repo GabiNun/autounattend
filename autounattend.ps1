@@ -7,6 +7,11 @@ $dialog.Filter = "ISO files (*.iso)|*.iso"
 $dialog.Title  = "Select Windows ISO"
 $dialog.ShowDialog() | Out-Null
 
+if (-not $dialog.FileName) {
+  Write-Host "You didn't select an iso :(" -ForegroundColor Red
+  return
+}
+
 $ISO = $dialog.FileName
 
 $Drive = (Get-DiskImage -ImagePath $ISO | Mount-DiskImage | Get-Volume).DriveLetter + ':'
