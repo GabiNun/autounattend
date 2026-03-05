@@ -5,7 +5,7 @@ Write-Host Choice your ISO file
 $dialog = New-Object System.Windows.Forms.OpenFileDialog
 $dialog.Filter = "ISO files (*.iso)|*.iso"
 $dialog.Title  = "Select Windows ISO"
-$dialog.ShowDialog()
+$dialog.ShowDialog() | Out-Null
 
 $ISO = $dialog.FileName
 
